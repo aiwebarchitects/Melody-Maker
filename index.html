@@ -351,7 +351,7 @@
         }
         a {
            text-decoration: none;
-           color: black;
+           color: var(--text-color);
         }
     </style>
 </head>
@@ -376,10 +376,13 @@
         <footer class="footer">
     <div class="play-section">
         <button class="play-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                <path d="M8 5v14l11-7z"/>
-            </svg>
-        </button>
+    <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+        <path d="M8 5v14l11-7z"/>
+    </svg>
+    <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="display: none;">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+    </svg>
+</button>
         <div class="instrument-selector">
             <div class="instrument active">Piano</div>
             <div class="instrument">Pluck</div>
@@ -519,6 +522,8 @@
         });
 
         const playBtn = document.querySelector('.play-btn');
+	const playIcon = playBtn.querySelector('.play-icon');
+	const pauseIcon = playBtn.querySelector('.pause-icon');
         let isPlaying = false;
         let playbackInterval;
         let currentColumn = 0;
@@ -555,18 +560,20 @@
         }
 
         playBtn.addEventListener('click', () => {
-            isPlaying = !isPlaying;
-            if (isPlaying) {
-                playBtn.textContent = '❚❚';
-                currentColumn = 0;
-                movePlayback(); // Highlight the first column immediately
-                updatePlaybackSpeed();
-            } else {
-                playBtn.textContent = '▶';
-                clearInterval(playbackInterval);
-                document.querySelectorAll('.grid-cell').forEach(cell => cell.classList.remove('highlight'));
-            }
-        });
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+        currentColumn = 0;
+        movePlayback(); // Highlight the first column immediately
+        updatePlaybackSpeed();
+    } else {
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+        clearInterval(playbackInterval);
+        document.querySelectorAll('.grid-cell').forEach(cell => cell.classList.remove('highlight'));
+    }
+});
 
         const restartBtn = document.querySelector('.restart-btn');
         restartBtn.addEventListener('click', () => {
