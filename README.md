@@ -1,6 +1,6 @@
 # Melody Maker
 
-![Melody Maker Screenshot](https://rhythmic-address-limited.on-fleek.app/melody-maker-screenshot.jpg)
+![Melody Maker Screenshot](https://rhythmic-address-limited.on-fleek.app/melody-maker-screenshot.png)
 
 Melody Maker is a fun, interactive web application that allows you to create melodies right in your browser. With an intuitive grid interface and simple controls, you can compose tunes quickly and easily.
 
