@@ -37,10 +37,6 @@ To run Melody Maker locally:
 1. Clone this repository
 2. Open `index.html` in your browser
 
-## More from AIWebArchitects
-
-Check out our [shop](https://aiwebarchitects.com/) for more innovative web design templates and tools!
-
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
